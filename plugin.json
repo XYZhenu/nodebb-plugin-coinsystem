@@ -1,0 +1,16 @@
+{
+  "library": "index.js",
+  "hooks": [
+    {
+      "hook": "static:app.load",
+      "method": "init"
+    },
+    {
+      "hook": "action:user.set",
+      "method": "updateCoin"
+    }
+  ],
+  "languages": "public/language",
+  "defaultLang": "en-US",
+  "templates": "./public/templates"
+}

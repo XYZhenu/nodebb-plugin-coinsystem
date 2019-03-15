@@ -1,0 +1,25 @@
+{
+  "name": "nodebb-plugin-coinsystem",
+  "version": "0.0.0",
+  "description": "A NodeBB plugin to allow user get coin along with reputation reward.",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XYZhenu/nodebb-plugin-coinsystem.git"
+  },
+  "keywords": [
+    "nodebb"
+  ],
+  "author": "XYZhenu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XYZhenu/nodebb-plugin-coinsystem/issues"
+  },
+  "homepage": "https://github.com/XYZhenu/nodebb-plugin-coinsystem#readme",
+  "nbbpm": {
+    "compatibility": "^1.12.0"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
