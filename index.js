@@ -11,7 +11,9 @@ const CoinSystem = {
                     db.client.collection('coinsystem').createIndex({_key: 1, coin: -1}, {background: true, sparse: true}, next);
                 }
             ],function (err) { 
-                winston.error('[coinsystem] failed create index'+ err);
+                if (err) {
+                    winston.error('[coinsystem] failed create index'+ err);
+                }
             })
         // } else if (nconf.get('database') === 'redis'){
         }
@@ -46,7 +48,9 @@ const CoinSystem = {
                     })
                 }
             ],function (err) {
-                winston.error('[coinsystem] failed'+err);
+                if (err) {
+                    winston.error('[coinsystem] failed'+err);
+                }
             })
         }
     }
