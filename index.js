@@ -22,27 +22,23 @@ const CoinSystem = {
 
     updateCoin(parma) {
         if (parma.field === 'reputation') {
-            winston.info('update coin ' + JSON.toString(parma));
-
             async.waterfall([
                 function(next) {
                     db.client.collection('coinsystem').findOne({ _key: 'coin:'+parma.uid }, function (err,result) {
                         if (err) {
                             next(err,null);
                         } else {
-                            next(null,result);
+                            next(null,result || {reputation:0,coin:0});
                         }
                     })
                 },
                 function (doc,next) {
-                    winston.info('before update coin ' + JSON.toString(doc));
                     let previous = doc.reputation || 0;
                     let coin = doc.coin + parma.value - previous
                     db.client.collection('coinsystem').findOneAndUpdate({ _key: 'coin:'+parma.uid }, { $set: {coin:coin, reputation:parma.value}}, { returnOriginal: false, upsert: true }, function (err, result) {
                         if (err) {
                             next(err, null);
                         } else {
-                            winston.info('after update coin ' + JSON.toString(result));
                             next(null);
                         }
                     })
